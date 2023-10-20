@@ -5,6 +5,7 @@ function entrar(){
     let votoBranco;
     let votoNulo;
     let encerrar;
+    let confirmacao;
     let voto;
     let ganhador;
     let votoTotal;
@@ -51,7 +52,14 @@ function entrar(){
             console.log('Voto confirmado!')
         }
         else if (voto == 0){
-            encerrar++
+            confirmacao = prompt('Você tem certeza que deseja encerrar a votação ? (S) (N)').toUpperCase()
+            if(confirmacao =='S'){
+                encerrar++
+            }
+            else{
+                continue
+            }
+
         }
     } while (encerrar == 0);
 
@@ -66,11 +74,11 @@ function entrar(){
         ganhador = candidato1
     }
     else if (candidato2 > candidato1 && candidato2 > candidato3){
-        console.log('O '+ nomeCandidato + ' 2 é o ganhador !!!!')
+        console.log('O '+ nomeCandidato2 + ' 2 é o ganhador !!!!')
         ganhador = candidato2
     }
     else if ( candidato3 > candidato1 && candidato3 > candidato2){
-        console.log('O '+ nomeCandidato + ' 3 é o ganhador !!!!')
+        console.log('O '+ nomeCandidato3 + ' 3 é o ganhador !!!!')
         ganhador = candidato3
     }
     else{
