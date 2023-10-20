@@ -9,9 +9,10 @@ function entrar(){
     let voto;
     let ganhador;
     let votoTotal;
-    let nomeCandidato1
-    let nomeCandidato2
-    let nomeCandidato3
+    let nomeCandidato1;
+    let nomeCandidato2;
+    let nomeCandidato3;
+    const senha = 759304;
 
     candidato1 = 0;
     candidato2 = 0;
@@ -30,7 +31,7 @@ function entrar(){
            '|3|'+nomeCandidato3 +'\n'+
            '|5| Voto Branco\n' +
            '|8| Voto Nulo\n' +
-           '|0| Encerrar\n'));
+           ''));
         if(voto == 1){
             candidato1++
             console.log('Voto confirmado!')
@@ -51,7 +52,7 @@ function entrar(){
             votoNulo++
             console.log('Voto confirmado!')
         }
-        else if (voto == 0){
+        else if (voto == senha){
             confirmacao = prompt('Você tem certeza que deseja encerrar a votação ? (S) (N)').toUpperCase()
             if(confirmacao =='S'){
                 encerrar++
