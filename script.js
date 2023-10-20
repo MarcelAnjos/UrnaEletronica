@@ -8,6 +8,9 @@ function entrar(){
     let voto;
     let ganhador;
     let votoTotal;
+    let nomeCandidato1
+    let nomeCandidato2
+    let nomeCandidato3
 
     candidato1 = 0;
     candidato2 = 0;
@@ -15,13 +18,15 @@ function entrar(){
     votoBranco = 0;
     votoNulo = 0;
     encerrar = 0;
+    nomeCandidato1 = prompt('Digite o nome do candidato 1')
+    nomeCandidato2 = prompt('Digite o nome do candidato 2')
+    nomeCandidato3 = prompt('Digite o nome do candidato 3')
 
     do {
-        
         voto = parseInt(prompt(
-           '|1| Candidato 1\n'+
-           '|2| Candidato 2\n'+ 
-           '|3| Candidato 3\n' +
+           '|1| '+ nomeCandidato1 +'\n' +
+           '|2| '+nomeCandidato2 +'\n'+ 
+           '|3|'+nomeCandidato3 +'\n'+
            '|5| Voto Branco\n' +
            '|8| Voto Nulo\n' +
            '|0| Encerrar\n'));
@@ -50,22 +55,22 @@ function entrar(){
         }
     } while (encerrar == 0);
 
-    console.log('Candidato 1 recebeu: ' + candidato1 + ' votos');
-    console.log('Candidato 2 recebeu: ' + candidato2 + ' votos');
-    console.log('Candidato 3 recebeu: ' + candidato3 + ' votos');
+    console.log(nomeCandidato1 + ' recebeu: ' + candidato1 + ' votos');
+    console.log(nomeCandidato2 + ' recebeu: ' + candidato2 + ' votos');
+    console.log(nomeCandidato3 + ' recebeu: ' + candidato3 + ' votos');
     console.log('Voto branco recebeu: ' + votoBranco + ' votos');
     console.log('Voto nulo recebeu:   ' + votoNulo   + ' votos');
 
     if(candidato1 > candidato2 && candidato1 > candidato3){
-        console.log('O candidato 1 é o ganhador !!!!')
+        console.log('O '+ nomeCandidato1 + ' é o ganhador !!!!')
         ganhador = candidato1
     }
     else if (candidato2 > candidato1 && candidato2 > candidato3){
-        console.log('O candidato 2 é o ganhador !!!!')
+        console.log('O '+ nomeCandidato + ' 2 é o ganhador !!!!')
         ganhador = candidato2
     }
     else if ( candidato3 > candidato1 && candidato3 > candidato2){
-        console.log('O candidato 3 é o ganhador !!!!')
+        console.log('O '+ nomeCandidato + ' 3 é o ganhador !!!!')
         ganhador = candidato3
     }
     else{
