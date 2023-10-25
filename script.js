@@ -26,12 +26,11 @@ function entrar(){
 
     do {
         voto = parseInt(prompt(
-           '|1| '+ nomeCandidato1 +'\n' +
+           '|1| '+nomeCandidato1 +'\n' +
            '|2| '+nomeCandidato2 +'\n'+ 
-           '|3|'+nomeCandidato3 +'\n'+
-           '|5| Voto Branco\n' +
-           '|8| Voto Nulo\n' +
-           ''));
+           '|3| '+nomeCandidato3 +'\n'+
+           '|5| Voto Branco\n' 
+            ));
         if(voto == 1){
             candidato1++
             console.log('Voto confirmado!')
@@ -48,10 +47,7 @@ function entrar(){
             votoBranco++
             console.log('Voto Confirmado!')
         }
-        else if(voto == 8){
-            votoNulo++
-            console.log('Voto confirmado!')
-        }
+
         else if (voto == senha){
             confirmacao = prompt('Você tem certeza que deseja encerrar a votação ? (S) (N)').toUpperCase()
             if(confirmacao =='S'){
@@ -62,6 +58,14 @@ function entrar(){
             }
 
         }
+
+        else {
+            if(confirm('Você tem certeza que deseja anular seu voto ?')){
+                    votoNulo++
+                    console.log('Voto Anulado')
+            }
+        }
+
     } while (encerrar == 0);
 
     console.log(nomeCandidato1 + ' recebeu: ' + candidato1 + ' votos');
