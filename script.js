@@ -12,17 +12,31 @@ function entrar(){
     let nomeCandidato1;
     let nomeCandidato2;
     let nomeCandidato3;
-    const senha = 759304;
+    let senha;
+    let confirmacaoNome;
 
+    confirmacaoNome = false;
     candidato1 = 0;
     candidato2 = 0;
     candidato3 = 0;
     votoBranco = 0;
     votoNulo = 0;
     encerrar = 0;
-    nomeCandidato1 = prompt('Digite o nome do candidato 1')
-    nomeCandidato2 = prompt('Digite o nome do candidato 2')
-    nomeCandidato3 = prompt('Digite o nome do candidato 3')
+
+    do {
+        nomeCandidato1 = prompt('Digite o nome do candidato 1')
+        nomeCandidato2 = prompt('Digite o nome do candidato 2')
+        nomeCandidato3 = prompt('Digite o nome do candidato 3')
+        console.log('Candidato 1: '+ nomeCandidato1)
+        console.log('Candidato 2: '+ nomeCandidato2)
+        console.log('Candidato 3: '+ nomeCandidato3)
+        if(confirm('Você tem certeza que esses  são os candidatos ?')){
+            confirmacaoNome = true
+        }
+
+    } while (confirmacaoNome == 0);
+
+    senha = parseInt(prompt('Digite uma senha para o encerramento da votação'))
 
     do {
         voto = parseInt(prompt(
