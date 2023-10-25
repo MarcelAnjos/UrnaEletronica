@@ -14,7 +14,8 @@ function entrar(){
     let nomeCandidato3;
     let senha;
     let confirmacaoNome;
-
+    let audio = document.getElementById('meuAudio')
+    const resetAudio = audio.currentTime = 0;
     confirmacaoNome = false;
     candidato1 = 0;
     candidato2 = 0;
@@ -39,27 +40,44 @@ function entrar(){
     senha = parseInt(prompt('Digite uma senha para o encerramento da votação'))
 
     do {
+        resetAudio
         voto = parseInt(prompt(
            '|1| '+nomeCandidato1 +'\n' +
            '|2| '+nomeCandidato2 +'\n'+ 
            '|3| '+nomeCandidato3 +'\n'+
            '|5| Voto Branco\n' 
             ));
+            
+              
         if(voto == 1){
-            candidato1++
-            console.log('Voto confirmado!')
+            if(confirm('Você realmente deseja votar no candidato: '+ nomeCandidato1 )){
+                candidato1++
+                audio.play()
+                resetAudio
+                
+            }         
+    
         }
         else if (voto == 2){
-            candidato2++
-            console.log('Voto confirmado!')
+            if(confirm('Você realmente deseja votar no candidato: '+ nomeCandidato2 )){
+                candidato2++
+                audio.play()
+                resetAudio
+            }
+            
         }
         else if (voto == 3){
-            candidato3++
-            console.log('Voto confirmado!')
+            if(confirm('Você realmente deseja votar no candidato: '+ nomeCandidato3 )){
+                candidato3++
+                audio.play()
+                resetAudio
+                
+            }
+            audio.play()
         }
         else if (voto == 5 ){
             votoBranco++
-            console.log('Voto Confirmado!')
+            console.log('Voto em branco Confirmado!')
         }
 
         else if (voto == senha){
