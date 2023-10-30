@@ -15,7 +15,10 @@ function entrar(){
     let senha;
     let confirmacaoNome;
     let audio = document.getElementById('meuAudio')
+    let dataHoraInicio;
+    let dataHoraFim;
     const resetAudio = audio.currentTime = 0;
+    const data = new Date();
     confirmacaoNome = false;
     candidato1 = 0;
     candidato2 = 0;
@@ -24,6 +27,8 @@ function entrar(){
     votoNulo = 0;
     encerrar = 0;
 
+    senha = parseInt(prompt('Digite uma senha para o encerramento da votação'))
+    
     do {
         nomeCandidato1 = prompt('Digite o nome do candidato 1')
         nomeCandidato2 = prompt('Digite o nome do candidato 2')
@@ -33,11 +38,10 @@ function entrar(){
         console.log('Candidato 3: '+ nomeCandidato3)
         if(confirm('Você tem certeza que esses  são os candidatos ?')){
             confirmacaoNome = true
+            dataHoraInicio = data.toLocaleString();
         }
 
-    } while (confirmacaoNome == 0);
-
-    senha = parseInt(prompt('Digite uma senha para o encerramento da votação'))
+    } while (confirmacaoNome == false);
 
     do {
         resetAudio
@@ -84,6 +88,7 @@ function entrar(){
             confirmacao = prompt('Você tem certeza que deseja encerrar a votação ? (S) (N)').toUpperCase()
             if(confirmacao =='S'){
                 encerrar++
+                
             }
             else{
                 continue
@@ -99,7 +104,7 @@ function entrar(){
         }
 
     } while (encerrar == 0);
-
+    console.log('---------Boletim De Votos---------')
     console.log(nomeCandidato1 + ' recebeu: ' + candidato1 + ' votos');
     console.log(nomeCandidato2 + ' recebeu: ' + candidato2 + ' votos');
     console.log(nomeCandidato3 + ' recebeu: ' + candidato3 + ' votos');
@@ -119,9 +124,13 @@ function entrar(){
         ganhador = candidato3
     }
     else{
-        console.log('Empate')
+        console.log('Um ou mais candidatos tiveram a mesma quantidade de votos resultando num Empate!')
         
     }
     votoTotal = ganhador + votoBranco;
-    console.log('Total de votos do ganhador + votos brancos: ' + votoTotal )
+    console.log('Total de votos do ganhador + votos brancos: ' + votoTotal );
+    console.log('-------------------------------------------');
+    console.log('Inicio da votação: '+ dataHoraInicio);
+    console.log('Fim da votação: '+ new Date().toLocaleString());
+    console.log('Fim de Programa!')
 }
